@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookLike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'user', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+ <body>
+    <div id="wrapper">
+      <%= render "user/shared/header" %>
+      <div id="container">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
+  </body>
+</html>
