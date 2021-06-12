@@ -7,12 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'user', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
  <body>
     <div id="wrapper">
-      <%= render "user/shared/header" %>
+      <%= render "users/shared/header" %>
       <div id="container">
         <%= yield %>
       </div>

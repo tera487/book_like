@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     registrations: "admins/registrations"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "home#index"
+  root "homes#index"
 
   namespace :admins do
     root "posts#index"
