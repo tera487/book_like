@@ -1,10 +1,5 @@
 /*
-*=require_tree ./user
+*= require bootstrap/dist/css/bootstrap.min.css
 *= require_tree ./shared
-*= require_self
+*=require_tree ./user
 */
-
-a {
-	text-decoration: none !important;
-	color: inherit !important;
-}

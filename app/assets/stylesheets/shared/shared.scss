@@ -1,0 +1,73 @@
+@import "colors";
+
+#wrapper{
+  position: relative;
+  min-height: 100vh;
+}
+
+#container{
+  width: 100%;
+  height: 100%;
+}
+
+.bd-navbar {
+  padding:  0.75rem 1rem;
+}
+
+html, body {
+	font-family: 'Raleway', sans-serif ;
+}
+
+footer{
+  text-align: center;
+  background-color: $green;
+  color: #fff;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  p{
+    margin: 6px;
+  }
+}
+
+a {
+	text-decoration: none !important;
+	color: inherit ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+  margin: 0 !important;
+}
+
+// button
+
+.btn-check:focus + .btn, .btn:focus{
+  box-shadow: none ;
+}
+
+.btn{
+  color: #6c757d;
+  &:hover {
+    background-color: $green;
+    color: #fff;
+  }
+}
+
+.btn-bd-light{
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.home_title{
+  border-bottom: 3px solid #333;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.home-wrapper{
+  width: 100%;
+  height: 80%;
+  position: fixed;
+}
+
