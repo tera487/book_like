@@ -34,7 +34,7 @@ class Users::BooksController < ApplicationController
       end
     end
     
-    # @books = Kaminari.paginate_array(@books).page(params[:page])
+    @books = Kaminari.paginate_array(@books).page(params[:page])
     
   end
 
