@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :reports, only: [:create, :destroy]
     end
 
-    resources :books, only: [:show, :index, :new] do
+    resources :books, only: [:show, :index] do
       get "search", on: :collection
     end
     resources :articles, only: :index
