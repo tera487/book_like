@@ -1,23 +1,40 @@
 <div class="container-sm">
-  <div class="main_title">
-    <h2>「<%= @title%>」の検索結果</h2>
+  <div class="d-flex justify-content-between">
+    <div class="main_title">
+      <h2>「<%= @title%>」の検索結果</h2>
+    </div>
+
+    <div >
+      <%= link_to "戻る",  :search_users_books,class: "btn back_button" %>
+    </div>
   </div>
 
-  <% if @books %>
-    <% @books.each do |book| %>
+  <div class="main-wrapper">
+    <div class="main_content">
 
-      <div class="d-flex book_item m-1">
-        <div>
-          <%= link_to image_tag(book.image_url),book.url, class: "book_image" %>
-        </div>
-        <div class="m-3" style="margin-bottom: 0px !important;">
-          <div><%= book.title %></div>
-          <div class= "font-md"><%= book.author %></div>
-        </div>
-      </div>
 
-    <% end %>
-  <% end %>
+      <% if @books %>
+        <% @books.each do |book| %>
+
+          <div class="d-flex book_item m-1">
+            <div>
+              <%= link_to image_tag(book.image_url),book.url, class: "book_image" %>
+            </div>
+            <div class="m-3" style="margin-bottom: 0px !important;">
+              <div><%= book.title %></div>
+              <div class= "font-md"><%= book.author %></div>
+            </div>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="sidebar">
+    
+    </div>
+  </div>
+
   <div class="pagenate_style text-center"><%= paginate @books %></div>
 
 </div>
