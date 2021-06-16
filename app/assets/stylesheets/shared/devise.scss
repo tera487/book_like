@@ -1,0 +1,65 @@
+.devise_wrapper{
+  width: 100%;
+  margin-top: 48px;
+  margin-bottom: 60px;
+
+  input[type="email"],
+  input[type="submit"],
+  input[type="text"],
+  input[type="password"]{
+    width: 100%;
+    border: 1px solid #d6dce0;
+    border-radius: .35em;
+    padding: .5em 1em;
+    line-height: 1.75;
+  }
+
+  .field{
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 28px;
+  }
+
+  .actions{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    margin-top: 48px;
+  }
+}
+
+.wrapper{
+  input[type="email"],
+  input[type="submit"],
+  input[type="text"],
+  input[type="password"]{
+    width: 100%;
+    border: 1px solid #d6dce0;
+    border-radius: .35em;
+    padding: .5em 1em;
+    line-height: 1.75;
+  }
+
+  .field{
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 28px;
+  }
+
+  .actions{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    margin-top: 48px;
+  }
+}
+
+.devise_title{
+  border-bottom: 3px solid #333;
+  width: 65%;
+  margin: 0 auto;
+  padding-bottom: 16px;
+  margin-bottom: 40px;
+}
