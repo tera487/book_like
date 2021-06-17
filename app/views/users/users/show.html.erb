@@ -1,2 +1,33 @@
-<h1>Users::Users#show</h1>
-<p>Find me in app/views/users/users/show.html.erb</p>
+<div class="container-sm ">
+ <div class="d-flex justify-content-between">
+
+    <div >
+      <%= link_to "アカウント設定",  :edit_user_registration,class: "btn back_button" %>
+    </div>
+  </div>
+  
+  <div class="main_title">
+    <h2>最近の投稿</h2>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="main_content">
+    
+      <% @posts.each do |p|%>
+        <div class="post_wrapper">
+          <h2 class="title"><%= link_to p.title, p %></h2>
+          <p class="date"><%= p.created_at.strftime("%Y 年, %m 月, %d 日" ) %> </p>
+          <p class="user"><%= link_to  p.user.name, user_path(p.user_id) %> </p>
+        </div>
+
+      <% end %>
+
+    
+    </div>
+
+    <div class="sidebar">
+    
+    </div>
+  </div>
+
+</div>

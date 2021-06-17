@@ -23,14 +23,14 @@ Rails.application.routes.draw do
 
   namespace :users do
     root "posts#index"
-    resources :posts do
-      resources :nice_posts, only: [:create, :destroy]
-      resources :reports, only: [:create, :destroy]
-    end
-
     resources :books, only: [:show, :index] do
       get "search", on: :collection
+      resources :posts do
+        resources :nice_posts, only: [:create, :destroy]
+        resources :reports, only: [:create, :destroy]
+      end
     end
+
     resources :articles, only: :index
 
     resources :read_book, only: :show

@@ -6,5 +6,6 @@ class Users::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @books = Book.find(params[:book_id])
   end
 end

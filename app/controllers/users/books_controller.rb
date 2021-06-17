@@ -34,10 +34,24 @@ class Users::BooksController < ApplicationController
         @books << book
       end
     end
+
+    #「@books」内の各データをそれぞれ保存していきます。
+    #すでに保存済の本は除外するためにunlessの構文を記載しています。
+    @books.each do |book|
+      unless Book.all.include?(book)
+        book.save
+      end
+    end
     
     @books = Kaminari.paginate_array(@books).page(params[:page])
     
   end
+
+
+  def show
+    @books = Book.find(params[:id])
+  end
+
 
   private
 
@@ -54,7 +68,6 @@ class Users::BooksController < ApplicationController
       url: url,
       isbn: isbn,
       image_url: image_url
-     
     }
   end
   

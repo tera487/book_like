@@ -1,0 +1,28 @@
+<div class="container-sm">
+  <div class="d-flex justify-content-between">
+    <div class="main_title">
+      <h2>投稿</h2>
+    </div>
+
+    <div >
+      <%= link_to "戻る",  :search_users_books,class: "btn back_button" %>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between book_container">
+    <div class="d-flex m-1", style="flex:1;">
+      <div>
+        <%= link_to image_tag(@books.image_url),@books.url %>
+      </div>
+      <div class="book_title">
+        <div ><%= @books.title %></div>
+        <div class= "book_author"><%= @books.author %></div>
+      </div>
+
+    </div>
+
+    <div style="width:100px;">
+    </div>
+  </div>
+
+</div>
