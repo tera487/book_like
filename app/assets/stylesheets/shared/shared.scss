@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 ;
 }
 
+textarea {
+  resize: none;
+}
+
 input[type="file"]{
   display: none;
 }
@@ -37,6 +41,15 @@ input[type="file"]{
 
 .icon{
   border-radius: 50%;
+}
+
+.text_content{
+  width: 80%;
+  height: 300px;
+  border: 1px solid #d6dce0;
+  border-radius: .35em;
+  padding: .5em 1em;
+  line-height: 1.75;
 }
 
 
