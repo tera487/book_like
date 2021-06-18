@@ -13,9 +13,15 @@
         <%= @user.name %>
       </div>
     </div>
-    <div>
-      <%= link_to "アカウント設定",  :edit_user_registration,class: "btn back_button" %>
-    </div>
+
+    <% if user_signed_in? && @user == current_user %>
+      <div>
+        <%= link_to "アカウント設定",  :edit_user_registration,class: "btn back_button" %>
+      </div>
+    <% else %>
+      <%= render "users/relationships/follow_button" %>
+    <% end %>
+    
 
   </div>
   
