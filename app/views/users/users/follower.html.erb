@@ -4,7 +4,7 @@
     <%= render "users/shared/profile" %>
 
     <div>
-      <%= link_to "戻る",  users_user_path(@user),class: "btn back_button" %>
+      <%= link_to "マイページに戻る",  users_user_path(@user),class: "btn back_button" %>
     </div>
   </div>
 
@@ -16,19 +16,21 @@
     <div class="main_content">
       <div class="profile_list">
         <% @user.followers.each do |user| %>
-          <div class="profile_container d-flex">
-        <div>
-          <% if @user.avatar.attached? %>
-            <%= image_tag(rails_blob_path(@user.avatar),:size => "60x60", class:"icon") %>
-          <% else %>
-            <%= image_tag("default.png", :size => "60x60", class:"icon") %>
-          <% end %>
-        </div>
+          <%= link_to(users_user_path(user)) do %>
+            <div class="profile_container d-flex">
+              <div>
+                <% if user.avatar.attached? %>
+                  <%= image_tag(rails_blob_path(user.avatar),:size => "60x60", class:"icon") %>
+                <% else %>
+                  <%= image_tag("default.png", :size => "60x60", class:"icon") %>
+                <% end %>
+              </div>
 
-        <div class="profile_name">
-          <%= @user.name %>
-        </div>
-      </div>
+              <div class="profile_name">
+                <%= user.name %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
 
       </div>

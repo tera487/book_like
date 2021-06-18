@@ -3,8 +3,8 @@
     <% @posts.each do |p|%>
       <div class="post_wrapper position-relative">
         <div class="d-flex ">
-          <% if @user.avatar.attached? %>
-            <%= image_tag(rails_blob_path(@user.avatar),:size => "40x40", class:"icon") %>
+          <% if p.user.avatar.attached? %>
+            <%= image_tag(rails_blob_path(p.user.avatar),:size => "40x40", class:"icon") %>
           <% else %>
             <%= image_tag("default.png", :size => "40x40", class:"icon") %>
           <% end %>

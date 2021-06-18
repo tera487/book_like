@@ -3,7 +3,7 @@
     <%= render "users/shared/profile" %>
 
     <div>
-      <%= link_to "戻る",  users_user_path(@user),class: "btn back_button" %>
+      <%= link_to "マイページに戻る",  users_user_path(@user),class: "btn back_button" %>
     </div>
   </div>
 
@@ -11,10 +11,31 @@
     <h2>フォロー中</h2>
   </div>
 
-  <div id="page_wrapper">
-    <% @user.followings.each do |user| %>
-      <%=  link_to user.name,  users_user_path(user.id) %>
-    <% end %>
+  <div class="main-wrapper">
+    <div class="main_content">
+      <div class="profile_list">
+        <% @user.followings.each do |user| %>
+          <%= link_to(users_user_path(user)) do %>
+            <div class="profile_container d-flex">
+              <div>
+                <% if user.avatar.attached? %>
+                  <%= image_tag(rails_blob_path(user.avatar),:size => "60x60", class:"icon") %>
+                <% else %>
+                  <%= image_tag("default.png", :size => "60x60", class:"icon") %>
+                <% end %>
+              </div>
 
+              <div class="profile_name">
+                <%= user.name %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+    <div class="sidebar">
+    </div>
   </div>
 </div>
