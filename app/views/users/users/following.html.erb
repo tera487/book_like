@@ -1,0 +1,20 @@
+<div class="container-sm ">
+  <div class="d-flex justify-content-between">
+    <%= render "users/shared/profile" %>
+
+    <div>
+      <%= link_to "戻る",  users_user_path(@user),class: "btn back_button" %>
+    </div>
+  </div>
+
+  <div class="main_title">
+    <h2>フォロー中</h2>
+  </div>
+
+  <div id="page_wrapper">
+    <% @user.followings.each do |user| %>
+      <%=  link_to user.name,  users_user_path(user.id) %>
+    <% end %>
+
+  </div>
+</div>
