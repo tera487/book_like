@@ -1,6 +1,7 @@
 class Users::PostsController < ApplicationController
   before_action :authenticate_user! 
   def index
+    @user = User.new
     @posts = Post.order(created_at: :desc)
   end
 

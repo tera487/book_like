@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 ;
 }
 
+p{
+  margin: 0;
+}
+
 textarea {
   resize: none;
 }
@@ -96,7 +100,7 @@ footer{
 .main_title{
   border-bottom: 3px solid #333;
   padding-bottom: 8px;
-  margin-bottom: 36px;
+  margin-bottom: 26px;
   margin-top: 20px;
   width: 400px;
 }
