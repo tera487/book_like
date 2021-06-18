@@ -49,7 +49,9 @@ class Users::BooksController < ApplicationController
 
 
   def show
+    @user = User.new
     @books = Book.find(params[:id])
+    @posts = @books.posts.order(created_at: :desc)
   end
 
 

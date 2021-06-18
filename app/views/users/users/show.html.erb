@@ -23,53 +23,6 @@
     <h2>最近の投稿</h2>
   </div>
 
-  <div class="main-wrapper">
-    <div class="main_content">
-    
-      <% @posts.each do |p|%>
-        <div class="post_wrapper position-relative">
-          <div class="d-flex ">
-            <% if @user.avatar.attached? %>
-              <%= image_tag(rails_blob_path(@user.avatar),:size => "40x40", class:"icon") %>
-            <% else %>
-              <%= image_tag("default.png", :size => "40x40", class:"icon") %>
-            <% end %>
-
-            <div >
-              <p class="user"><%= link_to  p.user.name, users_user_path(p.user_id) %> </p>
-              <div>
-                <%= p.content%>
-              </div>
-              <p class="date"><%= p.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
-            </div>
-
-          </div>
-          <%= image_tag("three_point.png", :size => "20x20", class:"point_icon") %>
-
-          <div>
-            <%= link_to(users_book_path(p.book), class:"d-flex book_item m-1") do %>
-            <div>
-              <%= image_tag(p.book.image_url) %>
-            </div>
-            <div class="m-3" style="margin-bottom: 0px !important;">
-              <div><%= p.book.title %></div>
-              <div class= "font-md"><%= p.book.author %></div>
-            </div>
-            
-          <% end %>
-          </div>
-          
-
-
-        </div>
-
-      <% end %>
-
-    </div>
-
-    <div class="sidebar">
-    
-    </div>
-  </div>
+  <%= render "users/shared/post_list" %>
 
 </div>
