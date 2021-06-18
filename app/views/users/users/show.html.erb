@@ -4,10 +4,14 @@
     
     <% if user_signed_in? && @user == current_user %>
       <div>
+        <%= link_to "読んだ本", read_books_users_user_path(@user),class: "btn back_button" %>
         <%= link_to "アカウント設定",  :edit_user_registration,class: "btn back_button" %>
       </div>
     <% else %>
-      <%= render "users/relationships/follow_button" %>
+      <div>
+       <%= link_to "読んだ本", read_books_users_user_path(@user),class: "btn back_button" %>
+        <%= render "users/relationships/follow_button" %>
+      </div>
     <% end %>
     
 

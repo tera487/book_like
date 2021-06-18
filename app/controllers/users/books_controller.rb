@@ -53,7 +53,7 @@ class Users::BooksController < ApplicationController
     @books = Book.find(params[:id])
     @posts = @books.posts.order(created_at: :desc)
   end
-
+ 
 
   private
 

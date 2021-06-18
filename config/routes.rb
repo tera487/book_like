@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     root "posts#index"
     resources :books, only: [:show, :index] do
       get "search", on: :collection
+      
       resources :posts do
         resources :nice_posts, only: [:create, :destroy]
         resources :reports, only: [:create, :destroy]
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
     resources :users, only: :show do
       member do
         get :following, :follower
+        get "read_books"
       end
     end
     resources :relationships, only: [:create, :destroy]

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   has_many :posts, dependent: :destroy
-  # has_many :posts_books, through: :posts
+  has_many :users, through: :posts, source: :book
 
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
