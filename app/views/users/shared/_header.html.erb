@@ -11,6 +11,7 @@
 
       <% if user_signed_in? %>
         <div>
+          <%= link_to "home", :users_root, class: "btn" %> 
           <%= link_to "本を探す", :search_users_books, class: "btn" %> 
           <%= link_to  "マイページ", users_user_path(current_user), class: "btn" %>
           <%= link_to "ログアウト", :destroy_user_session, method: :delete, class: "btn" %>
