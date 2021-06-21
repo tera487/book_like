@@ -38,18 +38,25 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="field">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <br />
-          (最小文字数<%= @minimum_password_length %>)
-        <% end %>
+      <div class="check-boxes">
+        <%= f.check_box :password_reset %>
+        <%= f.label :password_reset %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="password_fields">
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <br />
+            (最小文字数<%= @minimum_password_length %>)
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
       </div>
 
       <div class="field">

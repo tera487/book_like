@@ -9,6 +9,7 @@ ja:
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
         avatar: "プロフィール画像"
+        password_reset: "パスワードを変更する"
       admin:
         current_password: "現在のパスワード"
         email: "メールアドレス"

@@ -16,7 +16,8 @@ ActiveStorage.start()
 
 // 作成したファイルをwebpackerに読み込ませます。
 
-import "../js/hoge.js"
+import "../js/hoge.js";
 import "../js/page_top";
+import "../js/password_form.js";
 
 window.$ = jQuery;
