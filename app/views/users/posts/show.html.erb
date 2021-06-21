@@ -18,9 +18,20 @@
       </div>
     
 
-    <div >
-      <%= link_to "戻る",  :search_users_books,class: "btn back_button" %>
-    </div>
+      <div >
+        <% if @post.user != current_user%>
+          <div id="report_button">
+            <% if current_user.reports.find_by(post_id: @post.id) %>
+              <%= render "users/reports/reported" %>
+            <% else %>
+              <%= render "users/reports/report" %>
+              
+            <% end %>
+          
+          </div>
+          
+        <% end %>
+      </div>
   </div>
   <div class="main-wrapper">
     <div class="main_content">
