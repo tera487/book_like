@@ -4,6 +4,7 @@ class Users::UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc)
     @books = Book.new
+    @like = Like.find_by(user_id: @user.id, post_id: @posts.id)
   end
   
   def following

@@ -26,10 +26,11 @@ Rails.application.routes.draw do
     resources :books, only: [:show, :index] do
       get "search", on: :collection
       
-      resources :posts do
-        resources :nice_posts, only: [:create, :destroy]
-        resources :reports, only: [:create, :destroy]
-      end
+      resources :posts 
+    end
+    resources :posts do
+      resources :likes, only: [:create, :destroy]
+      resources :reports, only: [:create, :destroy]
     end
 
     resources :articles, only: :index
