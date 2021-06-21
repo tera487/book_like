@@ -17,5 +17,6 @@ ActiveStorage.start()
 // 作成したファイルをwebpackerに読み込ませます。
 
 import "../js/hoge.js"
+import "../js/page_top";
 
 window.$ = jQuery;
