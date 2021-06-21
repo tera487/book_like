@@ -29,6 +29,10 @@
             <% end %>
           
           </div>
+
+        <% else %>
+          <%= link_to "更新", edit_users_post_path(@post), class: "btn" %> 
+          <%= link_to "削除", users_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn" %>
           
         <% end %>
       </div>

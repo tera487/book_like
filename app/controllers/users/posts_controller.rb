@@ -26,10 +26,32 @@ class Users::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @like = Like.find_by(user_id: current_user.id, post_id: @post)
-    
+    @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
+    @report = Report.find_by(user_id: current_user.id, post_id: @post)
     
   end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.assign_attributes(post_params)
+    if @post.save
+      redirect_to users_post_path(@post)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to users_user_path(current_user)
+  end
+
+
 
   private 
   def post_params
