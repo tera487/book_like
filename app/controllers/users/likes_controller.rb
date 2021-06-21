@@ -7,7 +7,7 @@ class Users::LikesController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to :user_root}
-      format.js { @msg = "いいねをしました。" }
+      format.js { @msg = "いいねをしました。",@like = Like.find_by(user_id: current_user.id, post_id: @post) }
     end
 
   end
