@@ -7,6 +7,7 @@
 
       <% if admin_signed_in? %>
         <div>
+          <%= link_to "home", :admins_root, class: "btn" %> 
           <%= link_to "通報", "#", class: "btn" %> 
           <%= link_to  "マイページ", :edit_admin_registration , class: "btn"%>
           <%= link_to "ログアウト", :destroy_admin_session, method: :delete, class: "btn" %>

@@ -19,5 +19,6 @@ ActiveStorage.start()
 import "../js/hoge.js";
 import "../js/page_top";
 import "../js/password_form.js";
+import "../js/admin_password_form.js";
 
 window.$ = jQuery;
