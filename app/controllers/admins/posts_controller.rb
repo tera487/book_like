@@ -1,5 +1,6 @@
 class Admins::PostsController < ApplicationController
   before_action :authenticate_admin!
+  before_action :articles_set, only: :index
   def index
     @user = User.new
     @posts = Post.order(created_at: :desc)
@@ -23,5 +24,9 @@ class Admins::PostsController < ApplicationController
 
   end
 
+private
+  def articles_set
+    @articles = Article.order(created_at: :desc)
+  end
   
 end

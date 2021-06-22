@@ -40,8 +40,41 @@
   
   </div>
 
-  <div class="sidebar">
-  
+  <div class="sidebar articles_wrapper">
+    <% if @articles %>
+      <h2 class="articles_title">新着記事</h2>
+      <% @articles.first(4).each do |f| %>
+
+        <%= link_to(admins_article_path(f), class:"d-flex book_item articles_items") do %>
+
+          <div class="admin_field ">
+            <% if f.image.attached? %>
+              <%= image_tag(rails_blob_path(f.image),:size => "130x130", class:"article_image") %>
+            <% else %>
+              <%= image_tag("default.png", :size => "130x130", class:"article_image") %>
+            <% end %>
+          </div>
+
+          <div class="articles_list">
+            <%= f.created_at.strftime("%Y年 %m 月 %d日" ) %>
+            <div>
+              <%= f.article_title %>
+            </div>
+
+            <div>
+              <%= f.article_content %>
+            </div>
+          </div>
+          
+
+        <% end %>
+
+
+      <% end %>
+      
+     <%= link_to "もっと見る",:admins_articles,class:"articles_more" %>
+
+    <% end %>
   </div>
   
 </div>
