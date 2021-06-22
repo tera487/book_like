@@ -1,0 +1,15 @@
+<div class="container-sm ">
+  <div class="d-flex justify-content-between">
+    <%= render "admins/shared/profile" %>
+    
+    <%= link_to "読んだ本", read_books_admins_user_path(@user),class: "btn back_button" %>
+    
+  </div>
+  
+  <div class="main_title">
+    <h2>最近の投稿</h2>
+  </div>
+
+  <%= render "admins/shared/post_list" %>
+
+</div>

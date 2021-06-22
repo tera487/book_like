@@ -14,11 +14,17 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root "posts#index"
-    resources :posts, only: [:index, :destroy] do
+    resources :posts, only: [:index,:show, :destroy] do
       get :reports_posts, on: :collection
     end
-    resources :users, only: [:show, :destroy]
+    resources :users, only: [:show, :destroy] do
+      member do
+        get "read_books"
+      end
+    end
     resources :articles, except: [:show]
+    resources :read_book, only: :show
+    resources :books
   end
 
   namespace :users do
@@ -35,6 +41,7 @@ Rails.application.routes.draw do
 
     resources :articles, only: :index
 
+    
     resources :read_book, only: :show
 
     resources :users, only: :show do
