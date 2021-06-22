@@ -40,8 +40,6 @@ Rails.application.routes.draw do
     end
 
     resources :articles, only: :index
-
-    
     resources :read_book, only: :show
 
     resources :users, only: :show do

@@ -1,0 +1,43 @@
+<div class="container-sm ">
+  <div class="main_title">
+    <h2>通報一覧</h2>
+  </div>
+
+  <% @reports.each do |p| %>
+    <%= link_to(admins_post_path(p.post.id), )  do%>
+        <div class="post_wrapper position-relative">
+        
+          <div class="d-flex ">
+            <% if p.user.avatar.attached? %>
+              <%= image_tag(rails_blob_path(p.user.avatar),:size => "40x40", class:"icon") %>
+            <% else %>
+              <%= image_tag("default.png", :size => "40x40", class:"icon") %>
+            <% end %>
+
+            <div >
+              <p class="user"><%= p.post.user.name%> </p>
+              <div>
+                <%= p.post.content%>
+              </div>
+              <p class="date"><%= p.post.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+            </div>
+
+          </div>
+          <%= image_tag("three_point.png", :size => "20x20", class:"point_icon") %>
+
+          <div class="d-flex book_item m-1">
+            <div>
+              <%= image_tag(p.post.book.image_url) %>
+            </div>
+            <div class="m-3" style="margin-bottom: 0px !important;">
+              <div><%= p.post.book.title %></div>
+              <div class= "font-md"><%= p.post.book.author %></div>
+            </div>
+            
+          </div>
+        </div>
+        
+      <% end %>
+  <% end %>
+
+</div>

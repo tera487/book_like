@@ -17,5 +17,11 @@ class Admins::PostsController < ApplicationController
     @post.destroy
     redirect_to :admins_root
   end
+
+  def reports_posts
+    @reports = Report.order(created_at: :desc)
+
+  end
+
   
 end
