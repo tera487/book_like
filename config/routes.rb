@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         get "read_books"
       end
     end
-    resources :articles, except: [:show]
+    resources :articles
     resources :read_book, only: :show
     resources :books
   end
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :books, only: [:show, :index] do
       get "search", on: :collection
       
-      resources :posts, omly: [:new]
+      resources :posts, only: [:new]
     end
     resources :posts, except: :new do
       resources :likes, only: [:create, :destroy]
