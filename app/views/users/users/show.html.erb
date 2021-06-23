@@ -1,2 +1,35 @@
-<h1>Users::Users#show</h1>
-<p>Find me in app/views/users/users/show.html.erb</p>
+<div class="container-sm ">
+  <div class="d-flex justify-content-between">
+    <%= render "users/shared/profile" %>
+    
+    <% if user_signed_in? && @user == current_user %>
+      <div>
+        <%= link_to "読んだ本", read_books_users_user_path(@user),class: "btn back_button" %>
+        <%= link_to "アカウント設定",  :edit_user_registration,class: "btn back_button" %>
+      </div>
+    <% else %>
+      <div>
+       <%= link_to "読んだ本", read_books_users_user_path(@user),class: "btn back_button" %>
+        <% unless current_user == @user %>
+          <div id="follow_form">
+            <% if current_user.following?(@user) %>
+              <%= render "users/relationships/unfollow" %>
+            <% else %>
+              <%= render "users/relationships/follow" %>
+
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    
+
+  </div>
+  
+  <div class="main_title">
+    <h2>最近の投稿</h2>
+  </div>
+
+  <%= render "users/shared/post_list" %>
+
+</div>

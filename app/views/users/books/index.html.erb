@@ -16,15 +16,18 @@
       <% if @books %>
         <% @books.each do |book| %>
 
-          <div class="d-flex book_item m-1">
+          <%= link_to(users_book_path(book), class:"d-flex book_item m-1") do %>
             <div>
-              <%= link_to image_tag(book.image_url),book.url, class: "book_image" %>
+              <%= image_tag(book.image_url) %>
             </div>
             <div class="m-3" style="margin-bottom: 0px !important;">
               <div><%= book.title %></div>
               <div class= "font-md"><%= book.author %></div>
             </div>
-          </div>
+            
+
+          <% end %>
+
 
         <% end %>
       <% end %>

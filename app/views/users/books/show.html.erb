@@ -1,0 +1,25 @@
+<div class="container-sm">
+  <div class="d-flex justify-content-between book_container">
+    <div class="d-flex m-1", style="flex:1;">
+      <div>
+        <%= link_to image_tag(@books.image_url),@books.url %>
+      </div>
+      <div class="book_title">
+        <div ><%= @books.title %></div>
+        <div class= "book_author"><%= @books.author %></div>
+      </div>
+
+    </div>
+
+    <div>
+      <%= link_to "レビュー",  new_users_book_post_path(@books) ,class: "btn back_button" %>
+      <%= link_to "戻る",  :back,class: "btn back_button" %>
+    </div>
+  </div>
+
+  <div class="main_title">
+    <h2>みんなの投稿</h2>
+  </div>
+
+  <%= render "users/shared/post_list" %>
+</div>

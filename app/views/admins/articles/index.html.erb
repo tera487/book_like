@@ -1,0 +1,55 @@
+<div class="container-sm">
+  <div class="d-flex justify-content-between">
+    <div class="main_title">
+      <h2>記事一覧</h2>
+    </div>
+
+    <div >
+      <%= link_to "記事の作成",  :new_admins_article,class: "btn back_button" %>
+      <%= link_to "戻る",  :admins_root,class: "btn back_button" %>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="main_content">
+
+
+      <% if @articles %>
+        <% @articles.each do |f| %>
+
+          <%= link_to(admins_article_path(f), class:"d-flex book_item m-1") do %>
+
+            <div class="admin_field">
+              <% if f.image.attached? %>
+                <%= image_tag(rails_blob_path(f.image),:size => "130x130", class:"article_image") %>
+              <% else %>
+                <%= image_tag("default.png", :size => "130x130", class:"article_image") %>
+              <% end %>
+            </div>
+
+            <div class="articles_list">
+              <%= f.created_at.strftime("%Y年 %m 月 %d日" ) %>
+              <div>
+                <%= f.article_title %>
+              </div>
+
+              <div>
+                <%= f.article_content %>
+              </div>
+            </div>
+            
+
+          <% end %>
+
+
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="sidebar">
+    
+    </div>
+  </div>
+  <div class="pagenate_style text-center"><%= paginate @articles %></div>
+
+</div>

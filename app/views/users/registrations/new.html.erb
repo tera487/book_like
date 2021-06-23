@@ -13,9 +13,18 @@
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
 
-      <div class="field">
-        <%= f.label :avatar %><br />
-        <%= f.file_field :avatar  %>
+      <div class="field", style="text-align: center">
+        <div style="margin-bottom:10px;">プロフィール画像</div>
+        <%= f.label :avatar do%>
+          <% if @user.avatar.attached? %>
+            <%= image_tag(rails_blob_path(@user.avatar),:size => "80x80", class:"icon") %>
+          <% else %>
+            <%= image_tag("default.png", :size => "80x80", class:"icon") %>
+          <% end %>
+        <% end %>  
+        
+        <br />
+        <%= f.file_field :avatar%>
       </div>
 
 
@@ -27,7 +36,7 @@
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        (<%= @minimum_password_length %> 最小文字数)
+        (最小文字数<%= @minimum_password_length %>)
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>

@@ -1,14 +1,19 @@
 <header>
   <nav>
     <div class="d-flex justify-content-between bd-navbar">
-      <div >
-        <h2><%= link_to "Book Like", :root, class: "logo" %></h2>
+      <div>
+        <% if user_signed_in?%>
+          <h2><%= link_to "Book Like", :users_root, class: "logo" %></h2>
+        <% else %>
+          <h2><%= link_to "Book Like", :root, class: "logo" %></h2>
+        <% end %>
       </div>
-<%# users_user_path(@user) %>
+
       <% if user_signed_in? %>
         <div>
+          <%= link_to "home", :users_root, class: "btn" %> 
           <%= link_to "本を探す", :search_users_books, class: "btn" %> 
-          <%= link_to  "マイページ", "#", class: "btn" %>
+          <%= link_to  "マイページ", users_user_path(current_user), class: "btn" %>
           <%= link_to "ログアウト", :destroy_user_session, method: :delete, class: "btn" %>
         </div>
         

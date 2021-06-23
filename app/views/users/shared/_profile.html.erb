@@ -1,0 +1,18 @@
+<div class="profile_container d-flex">
+  <div>
+    <% if @user.avatar.attached? %>
+      <%= image_tag(rails_blob_path(@user.avatar),:size => "60x60", class:"icon") %>
+    <% else %>
+      <%= image_tag("default.png", :size => "60x60", class:"icon") %>
+    <% end %>
+  </div>
+
+  <div class="profile_name">
+    <%= @user.name %>
+    <div>
+      <%= link_to "#{@user.followings.count} フォロー", following_users_user_path(@user)  %>
+      <%= link_to "#{@user.followers.count} フォロワー", follower_users_user_path(@user), id: "followers"  %>
+      
+    </div>
+  </div>
+</div>

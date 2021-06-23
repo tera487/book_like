@@ -1,0 +1,20 @@
+.profile_container{
+  margin-top: 20px;
+  margin-bottom: 36px;
+  margin-left: 20px;
+}
+
+.profile_name{
+  margin-left: 26px;
+}
+
+.profile_list{
+  border: 1px solid #d6dce0;
+  border-radius: .25rem;
+  max-width: 700px;
+  > .profile_container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}

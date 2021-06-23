@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Admins::RegistrationsController < Devise::RegistrationsController
+  # アカウント編集後のリダイレクト先
+  def after_update_path_for(resource)
+    admins_root_path
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

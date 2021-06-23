@@ -1,0 +1,81 @@
+<div class="container-sm ">
+  <div class="d-flex justify-content-between">
+      <div class="d-flex ">
+        <% if @post.user.avatar.attached? %>
+          <%= image_tag(rails_blob_path(@post.user.avatar),:size => "40x40", class:"icon") %>
+        <% else %>
+          <%= image_tag("default.png", :size => "40x40", class:"icon") %>
+        <% end %>
+
+        <div >
+          <p class="user"><%= link_to  @post.user.name, users_user_path(@post.user_id) %> </p>
+          <div>
+            <%= @post.content%>
+          </div>
+          <p class="date"><%= @post.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+        </div>
+
+      </div>
+    
+
+      <div >
+        <% if @post.user != current_user%>
+          <div id="report_button">
+            <% if current_user.reports.find_by(post_id: @post.id) %>
+              <%= render "users/reports/reported" %>
+            <% else %>
+              <%= render "users/reports/report" %>
+              
+            <% end %>
+          
+          </div>
+
+        <% else %>
+          <%= link_to "更新", edit_users_post_path(@post), class: "btn" %> 
+          <%= link_to "削除", users_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn" %>
+          
+        <% end %>
+      </div>
+  </div>
+  <div class="main-wrapper">
+    <div class="main_content">
+      <div class="post_main position-relative">
+        
+
+        <div id="like_button">
+          <% if current_user.likes.find_by(post_id: @post.id) %>
+            <%= render "users/likes/liked" %>
+          <% else %>
+            <%= render "users/likes/like"%>
+            
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to(users_book_path(@post.book), class:"d-flex book_item m-1") do %>
+            <div>
+              <%= image_tag(@post.book.image_url) %>
+            </div>
+            <div class="m-3" style="margin-bottom: 0px !important;">
+              <div><%= @post.book.title %></div>
+              <div class= "font-md"><%= @post.book.author %></div>
+            </div>
+            
+          <% end %>
+        </div>
+        
+
+
+      </div>
+    
+
+    
+    </div>
+
+    <div class="sidebar">
+    
+    </div>
+    
+  </div>
+
+</div>

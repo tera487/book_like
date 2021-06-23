@@ -16,26 +16,34 @@ AllCops:
   Rails:
     enabled: true
 
-# "Missing top-level class documentation comment."を無効
+# "クラスとモジュールのトップレベルのドキュメントが欠落していないかどうかを確認"を無効
 Style/Documentation:
   Enabled: false
 
-# コメントにはアスキー記号のみを使用してください
+# "コメント内の非ASCII文字 (英語以外) をチェックします。許可された非ASCII文字の配列をAllowedChars属性に設定できます（デフォルトでは空）"を無効
 AsciiComments:
   Enabled: false
 
-# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
+# "引用符の使用が構成された設定と一致するかどうかを確認"を無効
 Style/StringLiterals:
   Enabled: false
 
 # "Line is too long"を無効
-Metrics/LineLength:
-  Enabled: false
+# Metrics/LineLength:
+#   Enabled: false
 
 # join_roomの記述が引っかかる為。省略は難しい
-Etrics/MethodLength:
-  Enabled: true
-  Max: 18
+# Etrics/MethodLength:
+#   Enabled: true
+#   Max: 18
+
+
+
+
+
+
+
+
 
 #'frozen_string_literal: true'を無効
 Style/FrozenStringLiteralComment:

@@ -14,32 +14,41 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root "posts#index"
-    resources :posts, only: [:index, :destroy] do
+    resources :posts, only: [:index,:show, :destroy] do
       get :reports_posts, on: :collection
     end
-    resources :users, only: [:show, :destroy]
-    resources :articles, except: [:show]
+    resources :users, only: [:show, :destroy] do
+      member do
+        get "read_books"
+      end
+    end
+    resources :articles
+    resources :read_book, only: :show
+    resources :books
   end
 
   namespace :users do
     root "posts#index"
-    resources :posts do
-      resources :nice_posts, only: [:create, :destroy]
+    resources :books, only: [:show, :index] do
+      get "search", on: :collection
+      
+      resources :posts, only: [:new, :create, :index]
+    end
+    resources :posts, except: :new do
+      resources :likes, only: [:create, :destroy]
       resources :reports, only: [:create, :destroy]
     end
 
-    resources :books, only: [:show, :index] do
-      get "search", on: :collection
-    end
-    resources :articles, only: :index
-
+    resources :articles, only: [:index,:show]
     resources :read_book, only: :show
 
     resources :users, only: :show do
       member do
         get :following, :follower
+        get "read_books"
       end
     end
+    resources :relationships, only: [:create, :destroy]
   end
 
 
