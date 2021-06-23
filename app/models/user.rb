@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :reports, dependent: :destroy
 
+  validates :name, presence: true, length: { maximum: 32 }
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)
