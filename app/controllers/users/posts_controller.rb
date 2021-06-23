@@ -1,5 +1,6 @@
 class Users::PostsController < ApplicationController
   before_action :authenticate_user! 
+  before_action :articles_set, only: :index
   def index
     @user = User.new
     @posts = Post.order(created_at: :desc)
@@ -56,5 +57,9 @@ class Users::PostsController < ApplicationController
   private 
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  def articles_set
+    @articles = Article.order(created_at: :desc)
   end
 end
