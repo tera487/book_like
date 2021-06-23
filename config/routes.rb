@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :books, only: [:show, :index] do
       get "search", on: :collection
       
-      resources :posts, only: [:new, :create]
+      resources :posts, only: [:new, :create, :index]
     end
     resources :posts, except: :new do
       resources :likes, only: [:create, :destroy]

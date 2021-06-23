@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      post: 
+        content: "感想"
+    errors:
+      models:
+        program:
+          attributes:
