@@ -86,21 +86,17 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.4)
-      devise (>= 4.7.1)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     devise-i18n-views (0.3.7)
     diff-lcs (1.4.4)
     erubi (1.10.0)
-<<<<<<< HEAD
-    ffi (1.15.3)
-=======
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    ffi (1.15.1)
->>>>>>> f0925868177fbdb1c2a00ac95d84a74821c5a3d4
+    ffi (1.15.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.10)
@@ -208,7 +204,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubocop (1.16.1)
+    rubocop (1.17.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
