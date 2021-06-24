@@ -1,0 +1,29 @@
+<div class="container-sm ">
+  <div class="d-flex justify-content-between">
+      <div></div>
+    
+
+      <div >
+        <%= link_to "更新", edit_admins_article_path(@articles), class: "btn" %> 
+        <%= link_to "削除", admins_article_path(@articles), method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn" %>
+      </div>
+  </div>
+  <div class="post_main position-relative">
+    <div class="articles_image">
+      <% if @articles.image.attached? %>
+        <%= image_tag(rails_blob_path(@articles.image), class:"article_image") %>
+      <% else %>
+        <%= image_tag("default.png", class:"article_image") %>
+      <% end %>
+    </div>
+
+    <div >
+      <p class="user"><%=  @articles.article_title %> </p>
+      <div>
+        <%= @articles.article_content%>
+      </div>
+      <p class="date"><%= @articles.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+    </div>
+
+  </div>
+</div>

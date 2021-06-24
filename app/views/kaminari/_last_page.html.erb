@@ -1,0 +1,8 @@
+<li class="page-item">
+  <%= 
+    link_to_unless(current_page.last?, raw(t 'views.pagination.last'), url, class: 'page-link') do |name|
+      content_tag(:span, name, class: "disabled page-link") 
+    end
+  %>
+
+</li>

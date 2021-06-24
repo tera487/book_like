@@ -1,0 +1,58 @@
+<div class="container-sm ">
+  <div class="d-flex justify-content-between">
+      <div class="d-flex ">
+        <% if @post.user.avatar.attached? %>
+          <%= image_tag(rails_blob_path(@post.user.avatar),:size => "40x40", class:"icon") %>
+        <% else %>
+          <%= image_tag("default.png", :size => "40x40", class:"icon") %>
+        <% end %>
+
+        <div >
+          <p class="user"><%= link_to  @post.user.name, admins_user_path(@post.user_id) %> </p>
+          <div>
+            <%= @post.content%>
+          </div>
+          <p class="date"><%= @post.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+        </div>
+
+      </div>
+    
+
+      <div >
+        <%= link_to "削除", admins_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn" %>
+        
+      </div>
+  </div>
+  <div class="main-wrapper">
+    <div class="main_content">
+      <div class="post_main position-relative">
+        
+
+        <div>
+          <%= link_to(admins_book_path(@post.book), class:"d-flex book_item m-1") do %>
+            <div>
+              <%= image_tag(@post.book.image_url) %>
+            </div>
+            <div class="m-3" style="margin-bottom: 0px !important;">
+              <div><%= @post.book.title %></div>
+              <div class= "font-md"><%= @post.book.author %></div>
+            </div>
+            
+          <% end %>
+        </div>
+        
+
+
+      </div>
+    
+
+    
+    </div>
+
+    <div class="sidebar">
+    
+    </div>
+    
+  </div>
+
+</div>

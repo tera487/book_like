@@ -1,0 +1,43 @@
+<div class="container-sm">
+  <div class="d-flex justify-content-between">
+    <div class="main_title">
+      <h2>「<%= @title%>」の検索結果</h2>
+    </div>
+
+    <div >
+      <%= link_to "戻る",  :search_users_books,class: "btn back_button" %>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="main_content">
+
+
+      <% if @books %>
+        <% @books.each do |book| %>
+
+          <%= link_to(users_book_path(book), class:"d-flex book_item m-1") do %>
+            <div>
+              <%= image_tag(book.image_url) %>
+            </div>
+            <div class="m-3" style="margin-bottom: 0px !important;">
+              <div><%= book.title %></div>
+              <div class= "font-md"><%= book.author %></div>
+            </div>
+            
+
+          <% end %>
+
+
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="sidebar">
+    
+    </div>
+  </div>
+
+  <div class="pagenate_style text-center"><%= paginate @books %></div>
+
+</div>

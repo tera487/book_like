@@ -7,7 +7,19 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "jquery"
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// 作成したファイルをwebpackerに読み込ませます。
+
+import "../js/hoge.js";
+import "../js/page_top";
+import "../js/password_form.js";
+import "../js/admin_password_form.js";
+import "../js/count";
+
+window.$ = jQuery;
