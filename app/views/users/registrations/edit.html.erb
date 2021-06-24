@@ -12,7 +12,7 @@
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
 
-      <div class="field", style="text-align: center">
+      <div class="field", style="text-align: center;">
         <div style="margin-bottom:10px;">プロフィール画像</div>
         <%= f.label :avatar do%>
           <% if @user.avatar.attached? %>
@@ -43,7 +43,7 @@
         <%= f.label :password_reset %>
       </div>
 
-      <div class="password_fields">
+      <div class="password_fields", style="display: none;">
         <div class="field">
           <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "new-password" %>
