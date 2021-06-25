@@ -21,5 +21,6 @@ import "../js/page_top";
 import "../js/password_form";
 import "../js/admin_password_form";
 import "../js/count";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 window.$ = jQuery;
