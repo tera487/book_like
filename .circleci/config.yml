@@ -1,100 +1,83 @@
-version: 2.1
-# orbs:
-#   ruby: circleci/ruby@0.1.2
+version: 2 
+jobs: 
+  build: 
+    parallelism: 3 
+    docker: 
+      - image: circleci/ruby:2.6.6-node-browsers 
+        environment: 
+          DB_HOST: 127.0.0.1
+          # BUNDLE_JOBS: 3
+          # BUNDLE_RETRY: 3
+          # BUNDLE_PATH: vendor/bundle
+          # PGHOST: 127.0.0.1
+          # PGUSER: circleci-demo-ruby
+          # RAILS_ENV: test
+      - image: circleci/mysql:8.0 
+        environment: 
+          MYSQL_ROOT_PASSWORD: password
 
-jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.6.6-stretch-node
-        environment:
-          - RAILS_ENV: 'test'
-      - image: circleci/mysql:8.0
-        name: "db"
-        command: mysqld --default-authentication-plugin=mysql_native_password
-        environment:
-          - MYSQL_ROOT_PASSWORD: password
-      # - image: selenium/standalone-chrome
-      #   name:  "chrome"
+    working_directory: ~/like_book
 
+    steps: 
+      - checkout 
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+      # - run:
+      #     name: Bundler の指定
+      #     command: bundle -v
 
-    working_directory: ~/book_like
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v2-dependencies-
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
 
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
-      - run: yarn install
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+      # - run: 
+      #     name:  Bundle Install
+      #     command: bundle check --path vendor/bundle || bundle install --deployment
 
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-
-      # googlemapAPI
-      # - run:
-      #     name: GoogleMap API
-      #     command: |
-      #       touch .env
-      #       echo GOOGLEMAP=$GOOGLEMAP > .env
-      #       echo S3_ACCESS_KEY_ID=$S3_ACCESS_KEY_ID > .env
-      #       echo S3_SECRET_ACCESS_KEY=$S3_SECRET_ACCESS_KEY > .env
-# rspec
-      # run tests!
       - run:
-          name: run tests
+          name: Bundlerをinstall
           command: |
-            mkdir -p /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
-      # collect reports
+            gem update --system
+            gem install bundler
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+
+      - restore_cache:
+          keys:
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
+
+      - run:
+          name: yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run:
+          name: DB の待機
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: データベースのセットアップ
+          command: bin/rails db:schema:load --trace
+
+
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+
       - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
-      - store_artifacts:
-          path: /home/circleci/book_like/tmp/screenshots/
-
-
-
-  # deploy:
-  #   machine:
-  #     enabled: true
-  #   steps:
-  #     - add_ssh_keys:
-  #         fingerprints:
-  #           - 72:dc:97:29:ba:51:58:5c:69:e5:a2:10:ab:31:5a:d3
-  #     - run: ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "/home/ec2-user/book_like/deploy-me.sh"
-workflows:
-  version: 2
-  build-test-and-deploy:
-    jobs:
-      - build
-      # - deploy:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
+          path: test_results
+      
