@@ -52,4 +52,4 @@ production:
   <<: *default
   database: book_like_production
   username: book_like
-  password: <%= ENV['BOOK_LIKE_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['BOOK_LIKE_DATABASE_PASSWORD'] %>
