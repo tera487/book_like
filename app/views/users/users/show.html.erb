@@ -11,7 +11,7 @@
       <div>
        <%= link_to "読んだ本", read_books_users_user_path(@user),class: "btn back_button" %>
         <% unless current_user == @user %>
-          <div id="follow_form">
+          <div id="follow_form", class=" d-inline-block">
             <% if current_user.following?(@user) %>
               <%= render "users/relationships/unfollow" %>
             <% else %>

@@ -5,7 +5,7 @@ class Users::RelationshipsController < ApplicationController
     following = current_user.follow(@user)
     respond_to do |format|
       format.html {redirect_to users_user_path(@user)}
-      format.js { @msg = "フォローしました。"}
+      format.js { @msg = "フォローしました"}
     end
   end
 
@@ -13,7 +13,7 @@ class Users::RelationshipsController < ApplicationController
     following = current_user.unfollow(@user)
     respond_to do |format|
       format.html {redirect_to users_user_path(@user)}
-      format.js { @msg = "フォローを解除しました。"}
+      format.js { @msg = "フォローを解除しました"}
     end
   end
 

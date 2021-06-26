@@ -84,7 +84,14 @@ input[type="file"]{
 .herder_flash{
   padding: 8px;
   margin-left: 20px;
+}
+
+.alert{
   color: $red;
+}
+
+.notice{
+  color: $green;
 }
 
 
