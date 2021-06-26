@@ -1,4 +1,4 @@
-$(function (){
+$(document).on("ready turbolinks:load",function (){
   var count = $(".js-text").text().replace(/\n/g, "改行").length;
   var now_count = 255 - count;
   if (count > 255) {
