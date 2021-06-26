@@ -17,7 +17,7 @@ class Users::UsersController < ApplicationController
   
   def read_books
     @user = User.find(params[:id])
-    @books = @user.users.order(created_at: :desc)
+    @books = @user.users.order(created_at: :desc).uniq
     @books = Kaminari.paginate_array(@books).page(params[:page])
   end
 

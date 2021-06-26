@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_054548) do
 
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "admin_id", null: false
-    t.string "article_title"
-    t.text "article_content"
+    t.string "article_title", null: false
+    t.text "article_content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_articles_on_admin_id"
