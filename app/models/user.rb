@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :password_reset
+
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable,:timeoutable
+         :recoverable, :rememberable, :validatable, :timeoutable
 
   has_one_attached :avatar
 
@@ -19,17 +20,15 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 32 }
 
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end
 
   def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+    relationship = relationships.find_by(follow_id: other_user.id)
+    relationship.destroy if relationship # rubocop:disable all
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 end

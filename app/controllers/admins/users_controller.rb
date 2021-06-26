@@ -5,8 +5,7 @@ class Admins::UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc)
     @books = Book.new
   end
-  
-  
+
   def read_books
     @user = User.find(params[:id])
     @books = @user.users.order(created_at: :desc)

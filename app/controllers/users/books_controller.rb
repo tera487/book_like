@@ -38,15 +38,12 @@ class Users::BooksController < ApplicationController
     #「@books」内の各データをそれぞれ保存していきます。
     #すでに保存済の本は除外するためにunlessの構文を記載しています。
     @books.each do |book|
-      unless Book.all.include?(book)
-        book.save
-      end
+      book.save unless Book.all.include?(book)
     end
     
     @books = Kaminari.paginate_array(@books).page(params[:page])
     
   end
-
 
   def show
     @user = User.new

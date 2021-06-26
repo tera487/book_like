@@ -19,7 +19,7 @@ class Users::PostsController < ApplicationController
     @post.book = @books
     @post.user = current_user
     if @post.save
-      redirect_to  users_user_path(current_user)
+      redirect_to users_user_path(current_user)
     else
       render :new
     end
@@ -53,9 +53,8 @@ class Users::PostsController < ApplicationController
     redirect_to users_user_path(current_user)
   end
 
-
-
   private 
+
   def post_params
     params.require(:post).permit(:content)
   end

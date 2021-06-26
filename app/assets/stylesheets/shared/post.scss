@@ -1,3 +1,5 @@
+@import "colors";
+
 .post_wrapper{
   border: 1px solid #d6dce0;
   border-radius: .25rem;
@@ -18,7 +20,8 @@
 }
 
 
-// .post_main{
-
-// }
+.post_group{
+  border: 10px solid $green;
+  border-radius: 5px;
+}
 

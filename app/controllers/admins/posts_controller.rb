@@ -10,7 +10,6 @@ class Admins::PostsController < ApplicationController
     @post = Post.find(params[:id])
     # @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
     # @report = Report.find_by(user_id: current_user.id, post_id: @post)
-    
   end
 
   def destroy
@@ -21,12 +20,11 @@ class Admins::PostsController < ApplicationController
 
   def reports_posts
     @reports = Report.order(created_at: :desc)
-
   end
 
-private
+  private
+
   def articles_set
     @articles = Article.order(created_at: :desc)
   end
-  
 end

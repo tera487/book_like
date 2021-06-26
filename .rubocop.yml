@@ -29,13 +29,13 @@ Style/StringLiterals:
   Enabled: false
 
 # "Line is too long"を無効
-# Metrics/LineLength:
-#   Enabled: false
+Metrics/LineLength:
+  Enabled: false
 
 # join_roomの記述が引っかかる為。省略は難しい
-# Etrics/MethodLength:
-#   Enabled: true
-#   Max: 18
+Etrics/MethodLength:
+  Enabled: true
+  Max: 18
 
 
 

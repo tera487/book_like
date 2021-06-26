@@ -10,12 +10,12 @@ class Admins::ArticlesController < ApplicationController
   def new
     @articles = Article.new
   end
-  
+
   def create
     @articles = Article.new(article_params)
     @articles.admin = current_admin
     if @articles.save
-      redirect_to  :admins_articles
+      redirect_to :admins_articles
     else
       render :new
     end
@@ -23,13 +23,12 @@ class Admins::ArticlesController < ApplicationController
 
   def show
     @articles = Article.find(params[:id])
-    
   end
-  
+
   def edit
     @articles = Article.find(params[:id])
   end
-  
+
   def update
     @articles = Article.find(params[:id])
     @articles.assign_attributes(article_params)
@@ -39,20 +38,16 @@ class Admins::ArticlesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @articles = Article.find(params[:id])
     @articles.destroy
     redirect_to :admins_articles
   end
 
+  private
 
-  private 
-    def article_params
-      params.require(:article).permit(:article_title, :image,:article_content)
-    end
-  
-
-
-
+  def article_params
+    params.require(:article).permit(:article_title, :image, :article_content)
+  end
 end
