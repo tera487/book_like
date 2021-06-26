@@ -27,6 +27,7 @@ class Users::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
     @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
     @report = Report.find_by(user_id: current_user.id, post_id: @post)
     
