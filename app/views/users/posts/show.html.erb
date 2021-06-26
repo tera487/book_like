@@ -2,10 +2,12 @@
   <div class="d-flex justify-content-between">
     <div class="profile_container d-flex">
       <div>
-        <% if @user.avatar.attached? %>
-          <%= image_tag(rails_blob_path(@user.avatar),:size => "60x60", class:"icon") %>
-        <% else %>
-          <%= image_tag("default.png", :size => "60x60", class:"icon") %>
+        <%= link_to  users_user_path(@post.user_id) do%>
+          <% if @user.avatar.attached? %>
+            <%= image_tag(rails_blob_path(@user.avatar),:size => "60x60", class:"icon") %>
+          <% else %>
+            <%= image_tag("default.png", :size => "60x60", class:"icon") %>
+          <% end %>
         <% end %>
       </div>
 

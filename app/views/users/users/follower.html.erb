@@ -14,9 +14,9 @@
 
   <div class="main-wrapper">
     <div class="main_content">
-      <div class="profile_list">
-        <% @user.followers.each do |user| %>
-          <%= link_to(users_user_path(user)) do %>
+      <% @user.followers.each do |user| %>
+        <%= link_to(users_user_path(user)) do %>
+          <div class="profile_list">
             <div class="profile_container d-flex">
               <div>
                 <% if user.avatar.attached? %>
@@ -30,15 +30,17 @@
                 <%= user.name %>
               </div>
             </div>
-          <% end %>
-        <% end %>
 
-      </div>
+          </div>
+        <% end %>
+      <% end %>
 
     </div>
     <div class="sidebar">
     </div>
   </div>
+  <div class="pagenate_style text-center"><%= paginate @users%></div>
+
 </div>
 
 

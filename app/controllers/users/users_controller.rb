@@ -9,10 +9,12 @@ class Users::UsersController < ApplicationController
 
   def following
     @user  = User.find(params[:id])
+    @users = @user.followings.page(params[:page])
   end
-
+  
   def follower
     @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page])
   end
 
   def read_books
