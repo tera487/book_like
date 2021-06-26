@@ -26,9 +26,6 @@
         <%= f.file_field :avatar%>
       </div>
 
-
-
-
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -60,7 +57,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <br> (変更にはパスワードが必要です)<br />
+        <%= f.label :current_password %> (変更にはパスワードが必要です)
         <%= f.password_field :current_password, autocomplete: "current-password" %>
       </div>
 

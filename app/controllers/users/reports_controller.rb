@@ -6,7 +6,7 @@ class Users::ReportsController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @post}
-      format.js { @msg = "通報しました！",@report = Report.find_by(user_id: current_user.id, post_id: @post) }
+      format.js { @report = Report.find_by(user_id: current_user.id, post_id: @post) }
     end
   end
 

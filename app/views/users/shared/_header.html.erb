@@ -1,13 +1,15 @@
 <header>
   <nav>
     <div class="d-flex justify-content-between bd-navbar">
-      <div>
+      <div class="d-flex">
         <% if user_signed_in?%>
           <h2><%= link_to "Book Like", :users_root, class: "logo" %></h2>
         <% else %>
           <h2><%= link_to "Book Like", :root, class: "logo" %></h2>
         <% end %>
+        <%= render "users/shared/flash"  %>
       </div>
+      
 
       <% if user_signed_in? %>
         <div>
