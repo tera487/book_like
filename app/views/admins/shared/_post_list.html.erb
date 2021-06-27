@@ -11,16 +11,19 @@
               <%= image_tag("default.png", :size => "40x40", class:"icon") %>
             <% end %>
 
-            <div >
-              <p class="user"><%= p.user.name%> </p>
-              <div>
-                <%= p.content%>
-              </div>
-              <p class="date"><%= p.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+            <div class="profile_user">
+              <p ><%= p.user.name%> </p>
             </div>
 
           </div>
-          <%= image_tag("three_point.png", :size => "20x20", class:"point_icon") %>
+
+          <div class="post_content" style="margin-top:10px;">
+            <div >
+              <%= p.content%>
+            </div>
+            <p class="date text-end"><%= p.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+          </div>
+
 
           <div class="d-flex book_item m-1">
             <div>
@@ -40,39 +43,43 @@
   
   </div>
 
-  <div class="sidebar articles_wrapper">
+  <div class="sidebar">
     <% if @articles %>
-      <h2 class="articles_title">新着記事</h2>
-      <% @articles.first(4).each do |f| %>
+      <div class="articles_wrapper">
+        <h2 class="articles_title">新着記事</h2>
+        <% @articles.first(4).each do |f| %>
 
-        <%= link_to(admins_article_path(f), class:"d-flex book_item articles_items") do %>
+          <%= link_to(admins_article_path(f), class:"d-flex book_item articles_items") do %>
 
-          <div class="admin_field ">
-            <% if f.image.attached? %>
-              <%= image_tag(rails_blob_path(f.image),:size => "130x130", class:"article_image") %>
-            <% else %>
-              <%= image_tag("default.png", :size => "130x130", class:"article_image") %>
-            <% end %>
-          </div>
-
-          <div class="articles_list">
-            <%= f.created_at.strftime("%Y年 %m 月 %d日" ) %>
-            <div>
-              <%= f.article_title %>
+            <div class="admin_field ">
+              <% if f.image.attached? %>
+                <%= image_tag(rails_blob_path(f.image),:size => "130x130", class:"article_image") %>
+              <% else %>
+                <%= image_tag("default.png", :size => "130x130", class:"article_image") %>
+              <% end %>
             </div>
 
-            <div>
-              <%= f.article_content %>
+            <div class="articles_list">
+              <%= f.created_at.strftime("%Y年 %m 月 %d日" ) %>
+              <div>
+                <%= f.article_title %>
+              </div>
+
+              <div>
+                <%= f.article_content %>
+              </div>
             </div>
-          </div>
-          
+            
+
+          <% end %>
+
 
         <% end %>
-
-
-      <% end %>
+        
+        <%= link_to "もっと見る",:admins_articles,class:"articles_more" %>
       
-     <%= link_to "もっと見る",:admins_articles,class:"articles_more" %>
+      </div>
+
 
     <% end %>
   </div>
