@@ -11,7 +11,7 @@ class Users::UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followings.page(params[:page])
   end
-  
+
   def follower
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page])

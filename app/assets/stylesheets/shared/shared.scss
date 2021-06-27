@@ -76,6 +76,9 @@ input[type="file"]{
   margin-bottom: 20px;
 }
 
+.container-sm{
+  margin-bottom: 48px;
+}
 
 // header
 .bd-navbar {
@@ -136,6 +139,7 @@ footer{
   margin-bottom: 26px;
   margin-top: 20px;
   max-width: 880px;
+  min-width: 440px;
 }
 
 .main-wrapper{

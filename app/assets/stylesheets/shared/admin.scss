@@ -5,6 +5,7 @@
 
 .articles_list{
   padding: 20px;
+  position: relative;
 }
 
 .articles_image{
@@ -39,3 +40,8 @@
   display: block;
 }
 
+.articles_date{
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
