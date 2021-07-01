@@ -4,7 +4,12 @@
       <h3>本の知識を人生に活かす</h3>
     </div>
     <div>
-      <%= link_to "アカウントの作成", :new_user_registration, class: "btn btn-bd-light " %>
+      <%= link_to "アカウントの作成", :new_user_registration, class: "btn btn-bd-light ",style: "margin-bottom:18px;" %>
+    </div>
+
+    <div>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-bd-light " %>
+    
     </div>
     
   </div>

@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :ensure_normal_user, only: %i[update destroy]
+
+  def ensure_normal_user
+    redirect_to users_user_path(@user), alert: 'ゲストユーザーの更新・削除はできません。' if resource.email == 'guest@example.com'
+  end
+
   #アカウント登録後のリダイレクト先
   def after_sign_up_path_for(resource)
     users_root_path
