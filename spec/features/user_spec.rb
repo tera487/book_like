@@ -120,7 +120,6 @@ RSpec.feature 'User' do
       expect(page).to have_content 'ゲストユーザーとしてログインしました。'
       expect(current_path).to eq users_root_path
     end
-
   end
 
   feature "ゲストユーザーの更新" do
@@ -129,7 +128,6 @@ RSpec.feature 'User' do
     background do
       guest_as_user
     end
-
 
     scenario '更新に失敗する' do
       visit edit_user_registration_path
@@ -143,6 +141,4 @@ RSpec.feature 'User' do
       expect(page).to have_content 'ゲストユーザーの更新・削除はできません。'
     end
   end
-
-
 end
