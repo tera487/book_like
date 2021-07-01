@@ -111,4 +111,38 @@ RSpec.feature 'User' do
       expect(current_path).to eq user_registration_path
     end
   end
+
+  feature "ゲストユーザーのログイン" do
+    scenario 'ログインする' do
+      visit root_path
+      click_on 'ゲストログイン（閲覧用）'
+
+      expect(page).to have_content 'ゲストユーザーとしてログインしました。'
+      expect(current_path).to eq users_root_path
+    end
+
+  end
+
+  feature "ゲストユーザーの更新" do
+    include FeaturesSpecHelper
+
+    background do
+      guest_as_user
+    end
+
+
+    scenario '更新に失敗する' do
+      visit edit_user_registration_path
+
+      fill_in 'ユーザーネーム', with: 'testtest'
+      fill_in 'メールアドレス', with: 'foo2@example.com'
+      fill_in '現在のパスワード', with: '123456'
+
+      click_on '保存'
+
+      expect(page).to have_content 'ゲストユーザーの更新・削除はできません。'
+    end
+  end
+
+
 end

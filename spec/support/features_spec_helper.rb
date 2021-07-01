@@ -8,4 +8,9 @@ module FeaturesSpecHelper
 
     click_on 'ログイン'
   end
+
+  def guest_as_user
+    visit root_path
+    click_on 'ゲストログイン（閲覧用）'
+  end
 end
