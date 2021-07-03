@@ -17,12 +17,12 @@
       <% end %>
     </div>
 
-    <div >
-      <p class="user"><%=  @articles.article_title %> </p>
-      <div>
+    <div class="article_content">
+      <p class="article_primary"><%=  @articles.article_title %> </p>
+      <div style="margin-bottom:14px;">
         <%= @articles.article_content%>
       </div>
-      <p class="date"><%= @articles.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+      <p class="text-end"><%= @articles.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
     </div>
 
   </div>

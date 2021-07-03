@@ -1,3 +1,4 @@
+@import "dimensions";
 @import "colors";
 
 // global
@@ -49,7 +50,7 @@ input[type="file"]{
 
 .text_content{
   width: 80%;
-  border: 1px solid $orange;
+  border: 1px solid $clay;
   border-radius: .35em;
   padding: .5em 1em;
   line-height: 1.75;
