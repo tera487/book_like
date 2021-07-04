@@ -1,7 +1,7 @@
 <div class="main-wrapper">
   <div class="main_content">
     <% @posts.each do |p|%>
-      <%= link_to(users_post_path(p.id), )  do%>
+      <%= link_to(users_post_path(p.id) )  do%>
         <div class="post_wrapper position-relative">
         
           <div class="d-flex ">
@@ -43,7 +43,7 @@
   
   </div>
 
-  <div class="sidebar">
+  <div class="sidebar d-none d-sm-block">
     <% if @articles %>
       <div class="articles_wrapper">
         <h2 class="articles_title">新着記事</h2>
