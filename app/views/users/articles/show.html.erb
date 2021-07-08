@@ -3,16 +3,16 @@
       <div></div>
     
 
-      <div >
+      <div class="d-none d-md-block">
         <%= link_to "戻る", :back, class: "btn" %> 
       </div>
   </div>
   <div class="post_main position-relative">
     <div class="articles_image">
       <% if @articles.image.attached? %>
-        <%= image_tag(rails_blob_path(@articles.image), class:"article_image") %>
+        <%= image_tag(rails_blob_path(@articles.image), class:"article_image_main") %>
       <% else %>
-        <%= image_tag("default.png", class:"article_image") %>
+        <%= image_tag("default.png", class:"article_image_main") %>
       <% end %>
     </div>
 

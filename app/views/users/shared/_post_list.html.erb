@@ -18,18 +18,18 @@
           </div>
 
           <div class="post_content" style="margin-top:10px;">
-            <div >
+            <div class="post_text">
               <%= p.content%>
             </div>
-            <p class="date text-end"><%= p.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+            <p class="date text-end post_text"><%= p.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
           </div>
 
 
           <div class="d-flex book_item m-1">
-            <div>
-              <%= image_tag(p.book.image_url) %>
+            <div >
+              <%= image_tag(p.book.image_url,class:"book_item_image")  %>
             </div>
-            <div class="m-3" style="margin-bottom: 0px !important;">
+            <div class="m-3 book_item_text" style="margin-bottom: 0px !important;">
               <div><%= p.book.title %></div>
               <div class= "font-md"><%= p.book.author %></div>
             </div>
@@ -43,7 +43,7 @@
   
   </div>
 
-  <div class="sidebar d-none d-sm-block">
+  <div class="sidebar">
     <% if @articles %>
       <div class="articles_wrapper">
         <h2 class="articles_title">新着記事</h2>

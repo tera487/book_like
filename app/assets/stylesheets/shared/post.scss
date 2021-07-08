@@ -1,3 +1,4 @@
+@import "dimensions";
 @import "colors";
 
 .post_wrapper{
@@ -17,6 +18,9 @@
 .post_content{
   margin-left: 40px;
   margin-bottom: 26px;
+  @media (max-width: 768px) {
+    margin: 0 15px 10px;
+  }
 }
 
 
@@ -25,3 +29,21 @@
   border-radius: 5px;
 }
 
+.post_text{
+  @media (max-width: 576px) {  
+    font-size: $small;
+  }
+
+}
+
+.book_item_text{
+  @media (max-width: 576px) {
+    font-size: $normal;
+  }
+}
+
+.book_item_image{
+  @media (max-width: 576px) {
+    height: 80px;
+  }
+}

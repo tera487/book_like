@@ -10,7 +10,7 @@
     </div>
     
     <% if user_signed_in? %>
-      <div class="d-sm-none">
+      <div class="d-lg-none">
         <div class="menu-trigger" >
           <span></span>
           <span></span>
@@ -20,6 +20,7 @@
           <ul>
             <li><%= link_to "home", :users_root, style:"padding:20px;" %> </li>
             <li><%= link_to "本を探す", :search_users_books %> </li>
+            <li><%= link_to "記事をみる", :users_articles %> </li>
             <li><%= link_to  "マイページ", users_user_path(current_user) %></li>
             <li><%= link_to "ログアウト", :destroy_user_session, method: :delete %></li>
           </ul>
@@ -31,7 +32,7 @@
 
 
     <% if user_signed_in? %>
-      <div class="d-none d-sm-block">
+      <div class="d-none d-lg-block">
         <%= link_to "home", :users_root, class: "btn" %> 
         <%= link_to "本を探す", :search_users_books, class: "btn" %> 
         <%= link_to  "マイページ", users_user_path(current_user), class: "btn" %>

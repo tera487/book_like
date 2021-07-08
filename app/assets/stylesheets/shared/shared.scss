@@ -163,6 +163,10 @@ footer{
 
 .sidebar{
   width: 400px;
+  @media (max-width: 992px) {
+    display: none;
+  }
+
 }
 
 // kaminari
