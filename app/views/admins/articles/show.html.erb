@@ -3,7 +3,7 @@
       <div></div>
     
 
-      <div >
+      <div class="d-inline-block">
         <%= link_to "更新", edit_admins_article_path(@articles), class: "btn" %> 
         <%= link_to "削除", admins_article_path(@articles), method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn" %>
       </div>
@@ -11,9 +11,9 @@
   <div class="post_main position-relative">
     <div class="articles_image">
       <% if @articles.image.attached? %>
-        <%= image_tag(rails_blob_path(@articles.image), class:"article_image") %>
+        <%= image_tag(rails_blob_path(@articles.image), class:"article_image_main") %>
       <% else %>
-        <%= image_tag("default.png", class:"article_image") %>
+        <%= image_tag("default.png", class:"article_image_main") %>
       <% end %>
     </div>
 
