@@ -1,28 +1,47 @@
 <header>
-  <nav>
-    <div class="d-flex justify-content-between bd-navbar">
-      <div class="d-flex">
-        <h2><%= link_to "Book Like", :admins_root, class: "logo" %></h2>
-        <%= render "users/shared/flash"  %>
+  <div class="d-flex justify-content-between bd-navbar">
+    <div class="d-flex">
+      <h2><%= link_to "Book Like", :admins_root, class: "logo" %></h2>
+      <%= render "users/shared/flash"  %>
+    </div>
+
+    <% if admin_signed_in? %>
+      <div class="d-lg-none">
+        <div class="menu-trigger" >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="drawer">
+          <ul>
+            <li><%= link_to "home", :admins_root, style:"padding:20px;" %> </li>
+            <li><%= link_to "記事", :admins_articles %> </li>
+            <li><%= link_to "通報", :reports_posts_admins_posts %> </li>
+            <li><%= link_to  "アカウント設定", :edit_admin_registration  %></li>
+            <li><%= link_to "ログアウト", :destroy_admin_session, method: :delete %></li>
+          </ul>
+        </div>
+        <div class="overlay"></div>
+      </div>
+      
+    <% end %>
+
+    <% if admin_signed_in? %>
+      <div class="d-none d-lg-block">
+        <%= link_to "home", :admins_root, class: "btn" %> 
+        <%= link_to "記事", :admins_articles, class: "btn" %> 
+        <%= link_to "通報", :reports_posts_admins_posts, class: "btn" %> 
+        <%= link_to  "アカウント設定", :edit_admin_registration , class: "btn"%>
+        <%= link_to "ログアウト", :destroy_admin_session, method: :delete, class: "btn" %>
       </div>
 
-      <% if admin_signed_in? %>
-        <div>
-          <%= link_to "home", :admins_root, class: "btn" %> 
-          <%= link_to "記事", :admins_articles, class: "btn" %> 
-          <%= link_to "通報", :reports_posts_admins_posts, class: "btn" %> 
-          <%= link_to  "アカウント設定", :edit_admin_registration , class: "btn"%>
-          <%= link_to "ログアウト", :destroy_admin_session, method: :delete, class: "btn" %>
-        </div>
-
       <% else %>
-        <div>
-          <%= link_to "戻る", :new_user_session, class: "btn " %>
-        </div>
-        
-      <% end %>
+      <div>
+        <%= link_to "戻る", :new_user_session, class: "btn " %>
+      </div>
+      
+    <% end %>
 
-    </div>
-  </nav>
+  </div>
 </header>
 
