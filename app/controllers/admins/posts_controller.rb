@@ -19,7 +19,7 @@ class Admins::PostsController < ApplicationController
   end
 
   def reports_posts
-    @reports = Report.order(created_at: :desc)
+    @posts = Report.order(created_at: :desc)
   end
 
   private
