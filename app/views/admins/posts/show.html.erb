@@ -1,35 +1,41 @@
 <div class="container-sm ">
-  <div class="d-flex justify-content-between">
-      <div class="d-flex ">
-        <% if @post.user.avatar.attached? %>
-          <%= image_tag(rails_blob_path(@post.user.avatar),:size => "40x40", class:"icon") %>
-        <% else %>
-          <%= image_tag("default.png", :size => "40x40", class:"icon") %>
+  <div class="d-md-flex justify-content-between">
+    <div class="profile_container d-flex">
+      <div>
+        <%= link_to  admins_user_path(@post.user_id) do%>
+          <% if @post.user.avatar.attached? %>
+            <%= image_tag(rails_blob_path(@post.user.avatar),:size => "60x60", class:"icon") %>
+          <% else %>
+            <%= image_tag("default.png", :size => "60x60", class:"icon") %>
+          <% end %>
         <% end %>
+      </div>
 
-        <div >
-          <p class="user"><%= link_to  @post.user.name, admins_user_path(@post.user_id) %> </p>
-          <div>
-            <%= @post.content%>
-          </div>
-          <p class="date"><%= @post.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+      <div class="profile_name">
+        <p class="user"><%= link_to  @post.user.name, admins_user_path(@post.user_id) %> </p>
+        <div>
+          <%= "#{@post.user.followings.count} フォロー"  %>
+          <%=  "#{@post.user.followers.count} フォロワー" %>
+          
         </div>
-
       </div>
-    
+    </div>
 
-      <div >
-        <%= link_to "削除", admins_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？？"}, class: "btn" %>
-        
-      </div>
   </div>
   <div class="main-wrapper">
     <div class="main_content">
       <div class="post_main position-relative">
         
 
+        <div >
+          <div class="post_content">
+            <%= @post.content%>
+          </div>
+          <p class="date text-end"><%= @post.created_at.strftime("%Y年 %m 月 %d日" ) %> </p>
+        </div>
+
         <div>
-          <%= link_to(admins_book_path(@post.book), class:"d-flex book_item m-1") do %>
+          <%= link_to(users_book_path(@post.book), class:"d-flex book_item m-1") do %>
             <div>
               <%= image_tag(@post.book.image_url) %>
             </div>
@@ -45,7 +51,6 @@
 
       </div>
     
-
     
     </div>
 
