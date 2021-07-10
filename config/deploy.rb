@@ -23,7 +23,7 @@ set :keep_releases, 5
 set :rbenv_ruby, '2.6.6'
 
 #追加
-set :rbenv_custom_path, '/home/deploy/.rbenv/'
+# set :rbenv_custom_path, '/home/deploy/.rbenv/'
 
 #出力するログのレベル。
 set :log_level, :debug
