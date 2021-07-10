@@ -65,4 +65,4 @@
 server '35.75.129.88', user: 'admin', roles: %w{app db web} 
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/book-like.pem' 
+set :ssh_options, keys: '~/.ssh/book-like_key_rsa' 
