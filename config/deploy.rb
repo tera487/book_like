@@ -10,8 +10,11 @@ set :branch, 'master'
 # deploy先のディレクトリ。 
 set :deploy_to, '/var/www/rails/book_like'
 
+# secret_base_keyを読み込ませるため追記
+set :linked_files, %w[config/master.key]
+
 # シンボリックリンクをはるファイル。(※後述)
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/settings.yml', '.env')
 
 # シンボリックリンクをはるフォルダ。(※後述)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
