@@ -9,6 +9,16 @@ module FeaturesSpecHelper
     click_on 'ログイン'
   end
 
+  def login_as_admin
+    @admin = Admin.create!(name: "test", email: 'foo@example.com', password: '123456')
+    visit new_admin_session_path
+
+    fill_in 'メールアドレス', with: 'foo@example.com'
+    fill_in 'パスワード', with: '123456'
+
+    click_on 'ログイン'
+  end
+
   def guest_as_user
     visit root_path
     click_on 'ゲストログイン（閲覧用）'
