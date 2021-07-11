@@ -28,10 +28,15 @@ $worker  = 2
     defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
     old_pid = "#{server.config[:pid]}.oldbin"
     if old_pid != server.pid
+      # begin
+      #   Process.kill "QUIT", File.read(old_pid).to_i
+      # rescue Errno::ENOENT, Errno::ESRCH
+      # end
       begin
-        Process.kill "QUIT", File.read(old_pid).to_i
-      rescue Errno::ENOENT, Errno::ESRCH
-      end
+        sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
+        Process.kill :QUIT, File.read(old_pid).to_i
+        rescue Errno::ENOENT, Errno::ESRCH
+       end
     end
   end
 
