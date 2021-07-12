@@ -1,7 +1,10 @@
 # BookLike
 BookLikeは、本の気づきを共有、発見するSNSアプリです。
 
-URL:
+URL: https://www.book-like.com
+
+<img width="1438" alt="book_like_image" src="https://user-images.githubusercontent.com/64579170/125240371-fc878600-e324-11eb-9283-34659dae7eb9.png">
+
 
 # 開発背景
 
