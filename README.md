@@ -26,7 +26,7 @@ URL: https://www.book-like.com
   - Mysql 8.0.25
  
 * インフラ
-  - AWS(ECS-FARGATE/ALB/Route53/VPC/RDS)
+  - AWS(VPC、EC2、RDS for MySQL、S3、ALB、 IAM、Route53）
   - CircleCI (CI/CD)
   - Docker/docker-compose
 
