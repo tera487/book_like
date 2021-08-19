@@ -36,7 +36,13 @@ URL: https://www.book-like.com
     * レスポンシブ化
     * お名前.com（独自ドメインの取得）
 
+# ER図
+<img width="632" alt="book_like_ER図" src="https://user-images.githubusercontent.com/64579170/130008946-ab185a06-5cad-4db6-b3fc-abfc7f8fa118.png">
+
+
 # クラウド構成図
+<img width="517" alt="book_like_infrastructure" src="https://user-images.githubusercontent.com/64579170/130009119-6a86b977-4eb5-4a4c-9b5b-5beb879ce06c.png">
+
 
 # 機能一覧
 * ユーザー関連
