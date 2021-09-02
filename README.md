@@ -2,6 +2,7 @@
 BookLikeは、本の気づきを共有、発見するSNSアプリです。
 
 URL: https://www.book-like.com
+Qiita: https://qiita.com/tera487/items/9ac361aa9d3b767ecb07
 
 <img width="1438" alt="book_like_image" src="https://user-images.githubusercontent.com/64579170/125240371-fc878600-e324-11eb-9283-34659dae7eb9.png">
 
